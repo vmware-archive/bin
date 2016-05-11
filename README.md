@@ -103,7 +103,7 @@ concourse web \
   --session-signing-key session_signing_key \
   --tsa-host-key host_key \
   --tsa-authorized-keys authorized_worker_keys
-  --postgres-data-source postgres://user:pass@10.0.32.0/concourse \
+  --postgres-data-source postgres://user:pass@10.0.32.0/atc \
   --external-url https://ci.example.com \
   --peer-url http://10.0.16.10:8080
 ```
@@ -117,7 +117,7 @@ concourse web \
   --session-signing-key session_signing_key \
   --tsa-host-key host_key \
   --tsa-authorized-keys authorized_worker_keys
-  --postgres-data-source postgres://user:pass@10.0.32.0/concourse \
+  --postgres-data-source postgres://user:pass@10.0.32.0/atc \
   --external-url https://ci.example.com \
   --peer-url http://10.0.16.11:8080
 ```
