@@ -147,6 +147,10 @@ func (cmd *WorkerCommand) restoreVersionedAssets(logger lager.Logger) (string, e
 }
 
 func (cmd *WorkerCommand) baggageclaimRunner(logger lager.Logger) (ifrit.Runner, error) {
+	if cmd.Baggageclaim.Driver == "naive" {
+		return cmd.naiveBaggageclaimRunner(logger)
+	}
+
 	volumesImage := filepath.Join(cmd.WorkDir.Path(), "volumes.img")
 	volumesDir := filepath.Join(cmd.WorkDir.Path(), "volumes")
 
