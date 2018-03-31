@@ -23,7 +23,7 @@ RUN apt-get update && \
 # pre-build `iptables`
 RUN apt-get update && \
       apt-get -y install bzip2 && \
-      cd /tmp && curl http://www.netfilter.org/projects/iptables/files/iptables-1.4.21.tar.bz2 | tar jxf - && \
+      cd /tmp && curl https://www.netfilter.org/projects/iptables/files/iptables-1.4.21.tar.bz2 | tar jxf - && \
       cd iptables-1.4.21 && \
         mkdir /opt/static-assets/iptables && \
         ./configure --prefix=/opt/static-assets/iptables --enable-static --disable-shared && \
@@ -36,7 +36,7 @@ RUN apt-get update && \
 RUN apt-get update && \
       apt-get -y install liblzo2-dev libblkid-dev e2fslibs-dev libz-dev && \
       cd /tmp && \
-      curl https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.4.tar.gz | tar zxf - && \
+      curl -L https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.4.tar.gz | tar zxf - && \
       cd btrfs-progs-v4.4 && \
       LDFLAGS=-static ./configure --disable-documentation && \
       make && \
