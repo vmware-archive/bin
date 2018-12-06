@@ -1,7 +1,7 @@
 set PATH=C:\Go\bin;C:\tools\mingw64\bin;%PATH%
 
 set GOPATH=%CD%\gopath;%CD%\concourse
-set PATH=%CD%\gopath\bin;%PATH%
+set PATH=%CD%\gopath\bin;C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw64\bin;%PATH%
 
 set /p FinalVersion=<final-version\version
 set /p WorkerVersion=<concourse\src\worker-version\version
