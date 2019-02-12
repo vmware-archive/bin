@@ -32,7 +32,7 @@ pushd garden-runc-release/
     go build -o $ASSETS_DIR/bin/dadoo code.cloudfoundry.org/guardian/cmd/dadoo
 
     pushd src/code.cloudfoundry.org/guardian/cmd/init
-      gcc -static -o $ASSETS_DIR/bin/init init.c
+      gcc -static -o $ASSETS_DIR/bin/init init.c ignore_sigchild.c
     popd
 
     pushd src/github.com/opencontainers/runc
