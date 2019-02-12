@@ -15,6 +15,8 @@ go build -o go-bindata.exe github.com/jteeuwen/go-bindata/go-bindata
 
 .\go-bindata.exe -pkg bindata -o concourse\src\github.com\concourse\bin\bindata\bindata.go cli-artifacts/...
 
-go build -ldflags "-X main.Version=%FinalVersion% -X github.com/concourse/atc/atccmd.Version=%FinalVersion% -X github.com/concourse/atc/atccmd.WorkerVersion=%WorkerVersion% -X main.WorkerVersion=%WorkerVersion%" -o .\binary\concourse_windows_amd64.exe github.com/concourse/bin/cmd/concourse
+go build -ldflags "-X main.Version=%FinalVersion% -X github.com/concourse/atc/atccmd.Version=%FinalVersion% -X github.com/concourse/atc/atccmd.WorkerVersion=%WorkerVersion% -X main.WorkerVersion=%WorkerVersion%" -o concourse_windows_amd64.exe github.com/concourse/bin/cmd/concourse
+
+powershell.exe Copy-Item concourse_windows_amd64.exe binary/
 
 certUtil -hashfile .\binary\concourse_windows_amd64.exe SHA1 > .\binary\concourse_windows_amd64.exe.sha1
