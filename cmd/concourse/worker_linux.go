@@ -35,10 +35,6 @@ func (cmd WorkerCommand) lessenRequirements(prefix string, command *flags.Comman
 	// configured as work-dir/depot
 	command.FindOptionByLongName(prefix + "garden-depot").Required = false
 
-	// un-configure graph (default /var/gdn/graph)
-	command.FindOptionByLongName(prefix + "garden-graph").Required = false
-	command.FindOptionByLongName(prefix + "garden-graph").Default = []string{}
-
 	// these are provided as assets embedded in the 'concourse' binary
 	command.FindOptionByLongName(prefix + "garden-runtime-plugin").Required = false
 	command.FindOptionByLongName(prefix + "garden-dadoo-bin").Required = false
@@ -69,6 +65,7 @@ func (cmd *WorkerCommand) gardenRunner(logger lager.Logger, hasAssets bool) (atc
 	cmd.Garden.Containers.Dir = depotDir
 
 	cmd.Garden.Network.AllowHostAccess = true
+	cmd.Garden.Image.NoPlugin = true
 
 	worker := cmd.Worker.Worker()
 	worker.Platform = "linux"
