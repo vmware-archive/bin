@@ -1,7 +1,9 @@
 FROM golang:1
 
+ARG BOSH_CLI_VERSION=5.4.0
+
 # install Go BOSH CLI
-ADD https://s3.amazonaws.com/dk-shared-assets/cli-linux-feb11 /usr/local/bin/bosh
+ADD "https://github.com/cloudfoundry/bosh-cli/releases/download/v${BOSH_CLI_VERSION}/bosh-cli-${BOSH_CLI_VERSION}-linux-amd64" /usr/local/bin/bosh
 RUN chmod +x /usr/local/bin/bosh
 
 # directory in which to place prebuilt assets vendored by the concourse binary
