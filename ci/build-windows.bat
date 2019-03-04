@@ -1,4 +1,5 @@
 set PATH=C:\Go\bin;C:\tools\mingw64\bin;%PATH%
+set PATH=C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw64\bin;%PATH%
 
 set GOPATH=%CD%\gopath;%CD%\concourse
 set PATH=%CD%\gopath\bin;%PATH%
